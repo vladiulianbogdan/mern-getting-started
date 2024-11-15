@@ -27,7 +27,7 @@ const AddUser: React.FC = () => {
     e.preventDefault();
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/users`, formData);
-      navigate('/users'); 
+      navigate('/'); 
     } catch (err) {
       console.log(err);
       setError("Failed to create user");
