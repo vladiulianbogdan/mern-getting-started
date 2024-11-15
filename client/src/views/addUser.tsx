@@ -26,8 +26,8 @@ const AddUser: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/users`, formData);
-      navigate('/users'); // Redirect to users list after successful creation
+      await axios.post(`${import.meta.env.VITE_API_URL}/users`, formData);
+      navigate('/users'); 
     } catch (err) {
       console.log(err);
       setError("Failed to create user");
@@ -36,13 +36,12 @@ const AddUser: React.FC = () => {
 
   return (
     <div className="container mt-4">
-      <h2 className="mb-4">Add New User</h2>
       <button 
         type="button" 
         className="btn btn-success mb-3"
-        onClick={() => navigate('/add')}
+        onClick={() => navigate('/')}
       >
-        Go to Add Page
+        Go to Back
       </button>
       {error && (
         <div className="alert alert-danger" role="alert">
@@ -80,7 +79,7 @@ const AddUser: React.FC = () => {
         <button 
           type="button" 
           className="btn btn-secondary ms-2"
-          onClick={() => navigate('/users')}
+          onClick={() => navigate('/')}
         >
           Cancel
         </button>
